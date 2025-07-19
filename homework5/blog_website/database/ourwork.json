@@ -1,0 +1,23 @@
+[
+    {
+        "client_name": "Tomas Adam",
+        "client_id": "1",
+        "title": "Over the mountains",
+        "body": "Sunt distinctio Sed Sunt dSed Sunt distinctio Sed Sunt distinctio Sed Sunt distinctio Sed Sunt distinctio Sed Sunt distinctio Sed Sunt distinctio Sed Sunt distinctio Sed .",
+        "image": "snow.jpg"
+    },
+    {
+        "client_name": "Micheal Jim",
+        "client_id": "2",
+        "title": "Trip into space",
+        "body": "Aut quod cum eum sed Nulla mollitia rerum Aut quod cum eum sed Nulla mollitia rerum Aut quod cum eum sed Nulla mollitia rerum Aut quod cum eum sed Nulla quod cum eum sed Nulla mollitia rerum.",
+        "image": "lights.jpg"
+    },
+    {
+        "client_name": "Paula Hoppkins",
+        "client_id": "3",
+        "title": "Voluptatum excepteur",
+        "body": "Do dignissimos aut Au cum eum mollitia Do dignissimos aut Aut quod cum eum sed Nulla mollitia Do dignissimos aut Aut quod cum eum sed Nissimos aut Aut quod cum eum sed Nulla mollitia .",
+        "image": "mountains.jpg"
+    }
+]

@@ -1,0 +1,85 @@
+<?php
+session_start();
+$errors = [];
+
+// INCLUDE SECTION 
+include '../core/functions.php';
+include '../core/validations.php';
+include '../core/csv-functions.php';
+
+
+// Jumping URL protection 
+if (! isset($_SESSION['auth'])) {
+    $errors[] = "Unauthorized access!";
+    $_SESSION['errors'] = $errors;
+    jump_to("../login.php");
+    die();
+}
+
+//declaration of user auth data
+$userData=$_SESSION['auth'];
+
+
+// SERVER CHECK SECTION 
+if (! is_server_method($_SERVER, "POST")) {
+    $errors[] = "This SERVER method is not supported!";
+    $_SESSION['errors'] = $errors;
+    jump_to("../edit.php");
+    die();
+}
+
+
+// INPUTS SANITISATION SECTION
+if (is_input_received($_POST, 'oldpass')) {
+    foreach ($_POST as $key => $val) {
+        sanitize($val);
+        $$key = $val;
+    }
+} else {
+    $errors[] = "Please enter all details!";
+    $_SESSION['errors'] = $errors;
+    jump_to("../edit.php");
+    die();
+}
+
+// INPUTS VALIDATION SECTION 
+$errors = array_merge($errors, validatePassword($oldpass));
+$errors = array_merge($errors, validatePassword($newpass));
+$errors = array_merge($errors, validatePassword($passrepeat));
+$errors = array_merge($errors, validatePasswordMatching($newpass, $passrepeat));
+
+
+// FILE OPERATION AND RESULTS SECTION
+if (empty($errors)) {
+
+    $userId = $userData[0];
+    $csvFilePath = "../database/users.csv";
+
+    $results = updatePasswordByUserId($csvFilePath, $userId, $oldpass, $newpass);
+
+    echo "results: " . $results;
+    
+    if (is_bool($results) && $results == true) {
+        $_SESSION['success'] = "Password was updated successfully";
+        jump_to("../index.php");
+    } else {
+        if ($results == "user was not found!") {
+            echo "we are here";
+            die;
+            session_destroy();
+            jump_to("../login.php");
+            die();
+        } else {
+            $errors[] = $results;
+            $_SESSION['errors'] = $errors;
+            jump_to("../edit.php");
+            die();
+        }
+    }
+    // if validation errors were found
+} else {
+    $_SESSION['errors'] = $errors;
+    array_unshift($_SESSION['errors'], "Please make sure you correct below errors:");
+    jump_to("../edit.php");
+    die();
+}

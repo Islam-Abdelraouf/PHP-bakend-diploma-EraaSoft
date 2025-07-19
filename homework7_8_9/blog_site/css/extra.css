@@ -1,0 +1,10 @@
+#readmore {
+    color:blue;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-decoration: none;
+    transition: color 0.8s;
+}
+
+#readmore:hover {
+    color:rgb(194, 117, 2);
+}

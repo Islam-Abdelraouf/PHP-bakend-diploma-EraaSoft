@@ -1,0 +1,27 @@
+[
+    {
+        "plan_name": "Basic",
+        "storage": "10",
+        "emails": "10",
+        "domains": "10",
+        "support": "Endless",
+        "price": "10"
+    },
+    {
+        "plan_name": "Pro",
+        "storage": "25",
+        "emails": "25",
+        "domains": "25",
+        "support": "Endless",
+        "price": "25"
+    },
+    {
+        "plan_name": "Premium",
+        "storage": "50",
+        "emails": "50",
+        "domains": "50",
+        "support": "Endless",
+        "price": "50"
+    }
+    
+]

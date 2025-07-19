@@ -1,0 +1,21 @@
+label{
+    font-size: small;
+    font-weight: 500;
+}
+
+.container{
+    background-color: rgba(157, 234, 245, 0.1);
+    width: 650px;
+    height: 700px;
+    border-radius: 10px;
+}
+.form{
+    min-width: 500px;
+    max-width: 600px; 
+    margin: auto;
+}
+.input-set {
+    width: 80%;
+    margin: auto;
+    display: block;
+}

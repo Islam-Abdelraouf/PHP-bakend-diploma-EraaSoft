@@ -1,0 +1,277 @@
+<?php
+
+$products = [
+    [
+        'id' => 1,
+        'name' => 'Dell XPS 13 Laptop',
+        'category' => 'Laptops',
+        'price' => 1299.99,
+        'stock' => 15,
+        'description' => 'Ultra-thin and light laptop with 13-inch display, Intel Core i7, 16GB RAM, 512GB SSD',
+        'rating' => 4.7
+    ],
+    [
+        'id' => 2,
+        'name' => 'MacBook Pro 16"',
+        'category' => 'Laptops',
+        'price' => 2399.99,
+        'stock' => 8,
+        'description' => 'Professional laptop with M2 chip, 16GB RAM, 1TB SSD, and Retina display',
+        'rating' => 4.8
+    ],
+    [
+        'id' => 3,
+        'name' => 'Samsung Galaxy S23 Ultra',
+        'category' => 'Smartphones',
+        'price' => 1199.99,
+        'stock' => 25,
+        'description' => 'Flagship smartphone with 6.8" AMOLED display, 512GB storage, 12GB RAM',
+        'rating' => 4.6
+    ],
+    [
+        'id' => 4,
+        'name' => 'iPhone 15 Pro Max',
+        'category' => 'Smartphones',
+        'price' => 1299.99,
+        'stock' => 12,
+        'description' => 'Apple flagship with A17 chip, triple camera system, 256GB storage',
+        'rating' => 4.7
+    ],
+    [
+        'id' => 5,
+        'name' => 'Sony WH-1000XM5',
+        'category' => 'Audio',
+        'price' => 349.99,
+        'stock' => 30,
+        'description' => 'Wireless noise-cancelling headphones with 30-hour battery life',
+        'rating' => 4.9
+    ],
+    [
+        'id' => 6,
+        'name' => 'LG C2 65" OLED TV',
+        'category' => 'TVs',
+        'price' => 1899.99,
+        'stock' => 5,
+        'description' => '4K OLED TV with HDR, WebOS, and HDMI 2.1 for gaming',
+        'rating' => 4.8
+    ],
+    [
+        'id' => 7,
+        'name' => 'Apple iPad Pro 12.9"',
+        'category' => 'Tablets',
+        'price' => 1099.99,
+        'stock' => 10,
+        'description' => 'Professional tablet with M2 chip, Liquid Retina XDR display, 256GB storage',
+        'rating' => 4.8
+    ],
+    [
+        'id' => 8,
+        'name' => 'Logitech MX Master 3',
+        'category' => 'Accessories',
+        'price' => 99.99,
+        'stock' => 45,
+        'description' => 'Advanced wireless mouse with customizable buttons and multi-device support',
+        'rating' => 4.7
+    ],
+    [
+        'id' => 9,
+        'name' => 'AMD Ryzen 9 7950X',
+        'category' => 'Components',
+        'price' => 599.99,
+        'stock' => 7,
+        'description' => '16-core desktop processor with 32 threads, up to 5.7GHz boost',
+        'rating' => 4.9
+    ],
+    [
+        'id' => 10,
+        'name' => 'NVIDIA GeForce RTX 4090',
+        'category' => 'Components',
+        'price' => 1599.99,
+        'stock' => 3,
+        'description' => 'High-end graphics card with 24GB GDDR6X memory and ray tracing support',
+        'rating' => 4.8
+    ],
+    [
+        'id' => 11,
+        'name' => 'Samsung 49" Odyssey G9',
+        'category' => 'Monitors',
+        'price' => 1299.99,
+        'stock' => 6,
+        'description' => 'Ultra-wide 49-inch curved gaming monitor with 240Hz refresh rate',
+        'rating' => 4.6
+    ],
+    [
+        'id' => 12,
+        'name' => 'Bose QuietComfort Earbuds II',
+        'category' => 'Audio',
+        'price' => 279.99,
+        'stock' => 20,
+        'description' => 'Wireless earbuds with advanced noise cancellation and 6-hour battery life',
+        'rating' => 4.7
+    ],
+    [
+        'id' => 13,
+        'name' => 'DJI Mavic 3 Pro',
+        'category' => 'Drones',
+        'price' => 1599.99,
+        'stock' => 4,
+        'description' => 'Professional drone with Hasselblad camera, 4K video, and 46-minute flight time',
+        'rating' => 4.9
+    ],
+    [
+        'id' => 14,
+        'name' => 'Canon EOS R5',
+        'category' => 'Cameras',
+        'price' => 3799.99,
+        'stock' => 2,
+        'description' => 'Full-frame mirrorless camera with 45MP sensor and 8K video recording',
+        'rating' => 4.8
+    ],
+    [
+        'id' => 15,
+        'name' => 'Keychron K2 Mechanical Keyboard',
+        'category' => 'Accessories',
+        'price' => 89.99,
+        'stock' => 25,
+        'description' => 'Wireless mechanical keyboard with RGB backlighting and hot-swappable switches',
+        'rating' => 4.6
+    ],
+    [
+        'id' => 16,
+        'name' => 'Anker 737 PowerCore',
+        'category' => 'Accessories',
+        'price' => 149.99,
+        'stock' => 35,
+        'description' => '24,000mAh power bank with 140W output for laptops and fast charging',
+        'rating' => 4.7
+    ],
+    [
+        'id' => 17,
+        'name' => 'Microsoft Surface Pro 9',
+        'category' => 'Tablets',
+        'price' => 1099.99,
+        'stock' => 12,
+        'description' => '2-in-1 laptop/tablet with 13" display, Intel Core i5, 256GB SSD',
+        'rating' => 4.5
+    ],
+    [
+        'id' => 18,
+        'name' => 'Sonos Arc Soundbar',
+        'category' => 'Audio',
+        'price' => 899.99,
+        'stock' => 8,
+        'description' => 'Premium soundbar with Dolby Atmos and voice assistant support',
+        'rating' => 4.6
+    ],
+    [
+        'id' => 19,
+        'name' => 'Samsung 980 PRO 2TB SSD',
+        'category' => 'Storage',
+        'price' => 179.99,
+        'stock' => 30,
+        'description' => 'PCIe 4.0 NVMe SSD with up to 7,000 MB/s read speeds',
+        'rating' => 4.8
+    ],
+    [
+        'id' => 20,
+        'name' => 'Apple Watch Series 9',
+        'category' => 'Wearables',
+        'price' => 399.99,
+        'stock' => 22,
+        'description' => 'Smart watch with health tracking, cellular connectivity, and always-on display',
+        'rating' => 4.7
+    ],
+    [
+        'id' => 21,
+        'name' => 'Google Pixel 8 Pro',
+        'category' => 'Smartphones',
+        'price' => 899.99,
+        'stock' => 18,
+        'description' => 'Android smartphone with 6.7" display, advanced AI features, and exceptional camera',
+        'rating' => 4.6
+    ],
+    [
+        'id' => 22,
+        'name' => 'Steam Deck 512GB',
+        'category' => 'Gaming',
+        'price' => 649.99,
+        'stock' => 5,
+        'description' => 'Handheld gaming PC with AMD APU, 7" touchscreen, and premium anti-glare display',
+        'rating' => 4.5
+    ],
+    [
+        'id' => 23,
+        'name' => 'Corsair Vengeance 32GB DDR5 RAM',
+        'category' => 'Components',
+        'price' => 159.99,
+        'stock' => 40,
+        'description' => 'High-performance memory kit with 2x16GB modules and 6000MHz speed',
+        'rating' => 4.7
+    ],
+    [
+        'id' => 24,
+        'name' => 'ASUS ROG Strix G17 Gaming Laptop',
+        'category' => 'Laptops',
+        'price' => 1599.99,
+        'stock' => 9,
+        'description' => '17.3" gaming laptop with AMD Ryzen 9, RTX 4070, 32GB RAM, 1TB SSD',
+        'rating' => 4.6
+    ],
+    [
+        'id' => 25,
+        'name' => 'Sony A7 IV Mirrorless Camera',
+        'category' => 'Cameras',
+        'price' => 2499.99,
+        'stock' => 6,
+        'description' => 'Full-frame mirrorless camera with 33MP sensor and advanced autofocus',
+        'rating' => 4.8
+    ],
+    [
+        'id' => 26,
+        'name' => 'LG UltraGear 32" Gaming Monitor',
+        'category' => 'Monitors',
+        'price' => 499.99,
+        'stock' => 15,
+        'description' => '32-inch QHD gaming monitor with 165Hz refresh rate and 1ms response time',
+        'rating' => 4.5
+    ],
+    [
+        'id' => 27,
+        'name' => 'Razer Basilisk V3 Pro',
+        'category' => 'Accessories',
+        'price' => 149.99,
+        'stock' => 28,
+        'description' => 'Wireless gaming mouse with 11 programmable buttons and RGB lighting',
+        'rating' => 4.6
+    ],
+    [
+        'id' => 28,
+        'name' => 'Samsung Galaxy Tab S9 Ultra',
+        'category' => 'Tablets',
+        'price' => 1199.99,
+        'stock' => 7,
+        'description' => '14.6" Android tablet with AMOLED display, S Pen support, and 512GB storage',
+        'rating' => 4.7
+    ],
+    [
+        'id' => 29,
+        'name' => 'Elgato Stream Deck MK.2',
+        'category' => 'Accessories',
+        'price' => 149.99,
+        'stock' => 20,
+        'description' => 'Customizable control panel with 15 LCD keys for streamers and content creators',
+        'rating' => 4.8
+    ],
+    [
+        'id' => 30,
+        'name' => 'NZXT H710i ATX Mid Tower',
+        'category' => 'Components',
+        'price' => 169.99,
+        'stock' => 12,
+        'description' => 'Smart PC case with integrated RGB and fan controller',
+        'rating' => 4.5
+    ]
+];
+
+
+
