@@ -4,7 +4,7 @@ class BankAccount
 {
 
     public $accountNumber;
-    public $balance;
+    public $balance=20000;
     public $apr;
 
     public function withDraw()

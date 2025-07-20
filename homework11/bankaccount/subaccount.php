@@ -1,13 +1,16 @@
 <?php
 
-class SubAccount
+class SubAccount extends BankAccount
 {
 
     public $timePeriod;
     public $additionalServices = [];
-
-    public function penalty()
+    
+    public function penalty($times)
     {
-        echo "Penalty.";
+        for ($i = 1; $i <= $times; $i++) {
+            echo "Penalty.";
+            echo "<br>";
+        }
     }
 }
