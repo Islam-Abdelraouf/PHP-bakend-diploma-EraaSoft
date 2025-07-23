@@ -8,7 +8,7 @@ class Car
     private string $color;
     private string $model;
     private string $year;
-    private bool $running = true;
+    private bool $running = false;
 
 
 

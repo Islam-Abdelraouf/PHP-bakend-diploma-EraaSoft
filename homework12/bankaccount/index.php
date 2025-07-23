@@ -50,8 +50,8 @@ $newAccount = new Account($branchName, $accType, $customerName, $balabce);
 <body>
     <div class="row">
         <div class=" col-8 mx-auto text-center mt-3">
-            <h1>Class Encapsulation</h1>
-            <h3>Bank Account Registration</h3>
+            <h1 >Class Encapsulation</h1>
+            <h3 >Bank Account Registration</h3>
             <h1></h1>
         </div>
 
