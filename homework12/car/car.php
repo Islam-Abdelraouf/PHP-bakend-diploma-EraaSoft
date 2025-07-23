@@ -14,10 +14,6 @@ class Car
 
     // construct method
     public function __construct(
-        // carMake $make,
-        // carColor $color,
-        // string $model,
-        // string $year
         string $make,
         string $color,
         string $model,
@@ -27,10 +23,6 @@ class Car
         $this->color = $color;
         $this->model = $model;
         $this->year = $year;
-        // $this->$make = $this->setMake($make);
-        // $this->$color = $this->setColor($color);
-        // $this->$model = $this->setModel($model);
-        // $this->$year = $this->setYear($year);
     }
 
 

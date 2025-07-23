@@ -2,76 +2,94 @@
 
 class Account
 {
-    private $accountID = null;
-    private $accountType = [];
-    private $accountNumber;
-    private $accountIban;
-    private $accountBranch;
-    private $accountCustomerName;
-    public $accountIssueDate;
+    private string $accType;
+    private string $acctNumber;
+    private string $customerName;
+    private string $branchName;
+    private float $balabce;
+    private string $timeStamp;
 
 
-    // SET account id
-    private function setAccountID()
+    // getRandNumber
+    private function getRandNumber(): int
     {
-        return time() . rand(1000, 100000);
+        return time() . rand(10000, 1000000);
     }
 
-    // Account type
-    public function setAccountType($accType)
-    {
-        $this->accountType[] = $accType;
-    }
-    public function listAccountType()
-    {
-        return implode(", ", $this->accountType);
-    }
 
     // account number
-    public function setAccountNumber(int $numAccount)
+    public function setAccountNumber(): void
     {
-        $this->accountNumber = $numAccount;
+        $accTypeInWords = explode(" ", $this->accType);
+        $prefix = $accTypeInWords[0];
+        $this->acctNumber = "acc-" . $prefix . "-" . $this->getRandNumber();
     }
-    public function getAccountNumber()
+    public function getAccountNumber(): string
     {
-        return $this->accountNumber ;
+        return $this->acctNumber;
     }
 
-    // IBAN number
-    public function setAccountIban(string $strIban)
-    {
-        $this->accountIban = $strIban;
-    }
-    public function getAccountIban()
-    {
-        return $this->accountIban ;
-    }
 
     // Customer name
-    public function setCustomerName(string $strName)
+    public function setCustomerName(string $strName): void
     {
-        $this->accountCustomerName = $strName;
+        $this->customerName = $strName;
     }
-    public function getCustomerName()
+    public function getCustomerName(): string
     {
-        return $this->accountCustomerName ;
+        return $this->customerName;
     }
 
 
     // Branch name
-    public function setBranchName(string $strBranch)
+    public function setBranchName(string $strBranch): void
     {
-        $this->accountBranch = $strBranch;
+        $this->branchName = $strBranch;
     }
-    public function gettBranchName()
+    public function getBranchName(): string
     {
-        return $this->accountBranch ;
+        return $this->branchName;
+    }
+
+    public function getBalance(): string
+    {
+        return "EGP" . number_format($this->balabce, 0, ',');
     }
 
     // CONSTRUCT FUNCTION
-    public function __construct()
+    public function __construct(
+        string $branchName,
+        string $accType,
+        string $customerName,
+        string $balabce
+    ) {
+        // account type
+        $this->accType = $accType;
+
+        // account number (Automatically create)
+        $this->setAccountNumber();
+
+        // customer name
+        $this->customerName = $customerName;
+
+        // branch name
+        $this->branchName = $branchName;
+
+        // balance
+        $this->balabce = $balabce;
+
+        // issue date
+        $this->timeStamp = date('d-M-Y');
+    }
+
+    //get account details
+    public function displayAccountInfo()
     {
-        $accId = $this->setAccountID();
-        $this->accountID = $accId;
+        $information = "<B>Branch Name: </B>" . $this->branchName . ".<br>";
+        $information .= "<B>Account Number: </B>" . $this->acctNumber . ".<br>";
+        $information .= "<B>Account Type: </B>" . $this->accType . ".<br>";
+        $information .= "<B>Client Name: </B>" . $this->customerName . ".<br>";
+        $information .= "<B>Issue Date: </B>" . $this->timeStamp ;
+        return $information;
     }
 }
