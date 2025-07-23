@@ -1,11 +1,17 @@
 <?php
 
-class Gift extends Product
+class BabyCar extends Product
 {
     public $age;
     public $weight;
-    public $materials = [];
-    public $specialTax;
+    private $materials = [];
+    private $specialTax;
+
+
+    public function setMaterial($materialId, $materialName)
+    {
+        $this->materials[$materialId ?? null] = $materialName;
+    }
 
     public function displayMaterials(): string
     {
