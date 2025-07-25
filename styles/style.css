@@ -1,8 +1,17 @@
-body{
-  background-image: url("../images/cover2.jpg");
+body {
+  /* background-image: url("../images/cover2.jpg"); */
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center;
   position: relative;
+}
+
+body {
+  padding: 40px;
+  background-color: #c3c4c5ff;
+}
+
+.project-card {
+  margin-bottom: 30px;
 }

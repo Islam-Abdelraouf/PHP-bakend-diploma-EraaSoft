@@ -11,26 +11,41 @@
 
     <!-- BOOTSTRAP CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
-    <!-- BACKGROUND CSS -->
+    <!-- Extra CSS -->
     <link rel="stylesheet" href="styles/style.css">
+
 </head>
 
 <body>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
 
-    <div class="container col-9 mx-auto">
-        <section>
-            <div class="pt-3">
-                <h1 class="text-center text-uppercase">PHP Diploma EraaSoft</h1>
-                <h2 class="text-center text-uppercase">Homework</h2>
-                <br>
+    <section>
+        <!-- Project Cards -->
+        <div class="container">
+            <div class="row">
+                <!-- Page Header -->
+                <div class="col-md-11 mx-auto project-card">
+                    <div class="card">
+                        <div class="card-body">
+                            <h1 class="mb-3">My PHP & Web Projects</h1>
+                            <p><strong>Diploma:</strong> PHP Backend Development Diploma</p>
+                            <p><strong>Provider:</strong> EraaSoft</p>
+                            <p><strong>Date:</strong> From April 2025 - To </p>
+                            <p><strong>Notes:</strong> This page documents key coursework and personal practice projects from the PHP Diploma.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </section>
-        <section>
-            <!-- LECTURE 1 HOMEWORK -->
-            <div>
-                <h5 class="text-right">Lecture 1 (18.04.2025)</h5>
+
+
+            <div class="col-md-11 mx-auto border p-3 shadow-sm">
+
+
+                <!-- More projects can be appended below... -->
+
+                <!-- LECTURE 1 HOMEWORK -->
                 <div class="accordion" id="accordionExample">
+                    <h5 class="text-right">Lecture 1 (18.04.2025)</h5>
                     <div class="accordion-item">
                         <h2 class="accordion-header">
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse00" aria-expanded="false" aria-controls="collapse00">
@@ -40,12 +55,10 @@
                     </div>
                 </div>
                 <br>
-            </div>
 
-            <!-- LECTURE 2 HOMEWORK -->
-            <div>
-                <h5 class="text-right">Lecture 2 (25.04.2025)</h5>
+                <!-- LECTURE 2 HOMEWORK -->
                 <div class="accordion" id="accordionExample">
+                    <h5 class="text-right">Lecture 2 (25.04.2025)</h5>
                     <div class="accordion-item">
                         <h2 class="accordion-header">
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse11" aria-expanded="false" aria-controls="collapse11">
@@ -84,12 +97,10 @@
                     </div>
                 </div>
                 <br>
-            </div>
 
-            <!-- LECTURE 3 HOMEWORK -->
-            <div>
-                <h5 class="text-right">Lecture 3<span> (02.05.2025)</span></h5>
+                <!-- LECTURE 3 HOMEWORK -->
                 <div class="accordion" id="accordionExample">
+                    <h5 class="text-right">Lecture 3<span> (02.05.2025)</span></h5>
                     <div class="accordion-item">
                         <h2 class="accordion-header">
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse21" aria-expanded="false" aria-controls="collapse21">
@@ -116,12 +127,10 @@
                     </div>
                 </div>
                 <br>
-            </div>
 
-            <!-- LECTURE 4 HOMEWORK -->
-            <div>
-                <h5 class="text-right">Lecture 4 (09.05.2025)</h5>
+                <!-- LECTURE 4 HOMEWORK -->
                 <div class="accordion" id="accordionExample">
+                    <h5 class="text-right">Lecture 4 (09.05.2025)</h5>
                     <div class="accordion-item">
                         <h2 class="accordion-header">
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse31" aria-expanded="false" aria-controls="collapse31">
@@ -160,12 +169,10 @@
                     </div>
                 </div>
                 <br>
-            </div>
 
-            <!-- LECTURE 5 HOMEWORK -->
-            <div>
-                <h5 class="text-right">Lecture 5 (16.05.2025)</h5>
+                <!-- LECTURE 5 HOMEWORK -->
                 <div class="accordion" id="accordionExample">
+                    <h5 class="text-right">Lecture 5 (16.05.2025)</h5>
                     <div class="accordion-item">
                         <h2 class="accordion-header">
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse41" aria-expanded="false" aria-controls="collapse41">
@@ -178,7 +185,7 @@
                             </div>
                         </div>
                     </div>
-                   
+
                     <div class="accordion-item">
                         <h2 class="accordion-header">
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse42" aria-expanded="false" aria-controls="collapse42">
@@ -193,20 +200,14 @@
                     </div>
                 </div>
                 <br>
-            </div>
 
-
-
-            
-
-            <!-- LECTURE 6 HOMEWORK -->
-            <div>
-                <h5 class="text-right">Lecture 6 (30.05.2025)</h5>
+                <!-- LECTURE 6 HOMEWORK -->
                 <div class="accordion" id="accordionExample">
+                    <h5 class="text-right">Lecture 6 (30.05.2025)</h5>
                     <div class="accordion-item">
                         <h2 class="accordion-header">
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse51" aria-expanded="false" aria-controls="collapse51">
-                                School ER Diagram 
+                                School ER Diagram
                             </button>
                         </h2>
                         <div id="collapse51" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
@@ -215,21 +216,17 @@
                             </div>
                         </div>
                     </div>
-                   
+
                 </div>
                 <br>
-            </div>
 
-            
-
-            <!-- LECTURE 7/8/9 HOMEWORK -->
-            <div>
-                <h5 class="text-right">Lecture 7/8/9 (13/20/24/27.06.2025)</h5>
+                <!-- LECTURE 7/8/9 HOMEWORK -->
                 <div class="accordion" id="accordionExample">
+                    <h5 class="text-right">Lecture 7/8/9 (13/20/24/27.06.2025)</h5>
                     <div class="accordion-item">
                         <h2 class="accordion-header">
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse52" aria-expanded="false" aria-controls="collapse52">
-                                Blog Site 
+                                Blog Site
                             </button>
                         </h2>
                         <div id="collapse52" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
@@ -238,9 +235,7 @@
                             </div>
                         </div>
                     </div>
-                   
                 </div>
             </div>
-        </section>
-
-<p class="text-end p-1 mt-1" style="background-color: rgba(105, 220, 220, 0.3);">by Islam Abdelraouf</p>
+    </section>
+    <p class="text-end p-1 mt-1" style="background-color: rgba(105, 220, 220, 0.3);">by Islam Abdelraouf</p>
