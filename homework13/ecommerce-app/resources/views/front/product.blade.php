@@ -3,42 +3,46 @@
 
 {{-- Heading section --}}
 @section('heading')
-    <h1 class="display-2 py-3 text-center">Show Product</h1>
+    Show Product
 @endsection
 
 {{-- Page Contents --}}
 @section('content')
     {{-- Show product by id --}}
-    <div
-        class="mx-auto w-full max-w-sm rounded-lg border border-gray-200 bg-white shadow-sm dark:border-gray-700 dark:bg-gray-800">
-        <a href="#">
-            <img class="rounded-t-lg p-8" src={{ $product->image }} alt="product image" />
-        </a>
+    <div class="mx-auto w-full max-w-sm rounded-lg border border-gray-200 bg-white shadow-sm dark:border-gray-700 dark:bg-gray-800">
+        <img class="rounded-t-lg p-8" src={{ $product->image }} alt="product image" />
         <div class="px-5 pb-5">
-            <a href="#">
-                <h5 class="text-primary mb-3 text-center text-xl font-bold tracking-tight text-gray-900 dark:text-white">
-                    {{ $product->title }}
-                </h5>
-                <p class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">{{ $product->description }}</p>
-            </a>
+            <h5 class="text-primary mb-3 text-center text-xl font-bold tracking-tight text-gray-900 dark:text-white">
+                {{ $product->title }}
+            </h5>
+            <p class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">{{ $product->description }}</p>
+            {{-- product rating --}}
             <x-product-rating></x-product-rating>
-            <div class="flex items-center justify-between">
-                <span class="text-3xl font-bold text-gray-900 dark:text-white">${{ $product->price }}</span>
-                <a href="#"
-                    class="rounded-lg bg-blue-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                    Add to cart
-                </a>
+            <div class="flex items-center justify-between align-bottom">
+                <span class="text-3xl font-bold text-gray-900 dark:text-white">EGP. {{ $product->price }}</span>
+                {{-- Add to cart button --}}
+                <x-card-button>Add to cart</x-card-button>
             </div>
         </div>
     </div>
 
-    {{-- Related Products --}}
-    <h1 class="display-4 mt-5 py-3">Related products</h1>
-    <div
-        class="mt-2 grid grid-cols-3 gap-2 rounded-lg border border-gray-200 bg-white p-3 shadow-sm dark:border-gray-700 dark:bg-gray-800">
+    {{-- Related Products Listing --}}
+
+    {{-- Section header --}}
+    <header class="bg-white shadow-sm">
+        <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
+            <h1 class="my-4 text-center text-3xl font-extrabold text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
+                <span class="bg-gradient-to-r from-sky-400 to-emerald-600 bg-clip-text text-transparent">
+                    Related products
+                </span>
+            </h1>
+        </div>
+    </header>
+    {{-- cards grid --}}
+    <div class="mt-2 grid grid-cols-3 gap-2 rounded-lg border border-gray-200 bg-white p-3 shadow-sm dark:border-gray-700 dark:bg-gray-800">
         @foreach ($products as $product)
-            <div
-                class="mx-auto w-full max-w-sm rounded-lg border border-gray-200 bg-white shadow-sm dark:border-gray-700 dark:bg-gray-800">
+            {{-- product card --}}
+            <div class="mx-auto w-full max-w-sm rounded-lg border border-gray-200 bg-white shadow-sm dark:border-gray-700 dark:bg-gray-800">
                 <img class="rounded-t-lg p-8" src={{ $product->image }} alt="product image" />
                 <div class="px-5 pb-5">
                     <h5
@@ -48,18 +52,17 @@
                     <p class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
                         {{ Str::limit($product->description, 100) }}
                         <span>
-                            <a href="{{ url('product') . '/' . $product->id }}" class="text-primary">
+                            <a href="{{ url('product') . '/' . $product->id }}" class="text-blue-600">
                                 Read more
                             </a>
                         </span>
                     </p>
+                    {{-- product rating --}}
                     <x-product-rating></x-product-rating>
-                    <div class="flex items-center justify-between">
+                    <div class="flex items-center justify-between align-bottom">
                         <span class="text-3xl font-bold text-gray-900 dark:text-white">${{ $product->price }}</span>
-                        <a href="#"
-                            class="rounded-lg bg-blue-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                            Add to cart
-                        </a>
+                        {{-- Add to cart button --}}
+                        <x-card-button>Add to cart</x-card-button>
                     </div>
                 </div>
             </div>

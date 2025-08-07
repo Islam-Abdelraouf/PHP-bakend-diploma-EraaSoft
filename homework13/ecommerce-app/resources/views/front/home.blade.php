@@ -3,7 +3,7 @@
 
 {{-- Heading section --}}
 @section('heading')
-    <h1 class="display-2 py-3 text-center">Home Page</h1>
+    Home Page
 @endsection
 
 {{-- Page Contents --}}
