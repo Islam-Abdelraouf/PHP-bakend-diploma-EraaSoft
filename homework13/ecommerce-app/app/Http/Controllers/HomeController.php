@@ -14,7 +14,6 @@ class HomeController extends Controller
         return view("front.home");
     }
 
-
     public function contact()
     {
         return view("front.contact");

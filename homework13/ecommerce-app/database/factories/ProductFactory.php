@@ -22,7 +22,7 @@ class ProductFactory extends Factory
             'price'=> fake()->numberBetween(500,1000),
             'description'=> fake()->text(200),
             'code'=> fake()->unique()->uuid(),
-            'image'=>  url( 'images/product.jpg')
+            'image'=>  url( '/front/images/products/product'. rand(2,12) .'.jpg')
         ];
     }
 }

@@ -11,19 +11,15 @@ class ProductController extends Controller
     public function index()
     {
         $products = Product::all();
-        //dd($products);
-        return view("front.products", ['products' => $products]);
+        return view("front.products.index", ['products' => $products]);
     }
 
     public function show(int $id)
     {
-        //$product = Product::findOrFail($id);
-        $product = Product::find($id);
+        //$product = Product::find($id);
+        $product = Product::findOrFail($id);
         $products = Product::inRandomOrder()->take(3)->get();
 
-        if (!$product) {
-            abort(404);
-        }
-        return view("front.product", ['product' => $product], ['products' => $products]);
+        return view("front.products.product", ['product' => $product], ['products' => $products]);
     }
 }

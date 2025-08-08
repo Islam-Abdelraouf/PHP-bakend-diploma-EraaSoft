@@ -1,9 +1,11 @@
+{{-- ABOUT PAGE --}}
+
 {{-- Main app page inheritance --}}
-@extends('front.app')
+@extends('layouts.master')
 
 {{-- Heading section --}}
 @section('heading')
-    Ecommerce Project
+    <x-section-title mainTitle="true">Ecommerce Project</x-section-title>
 @endsection
 
 {{-- Page Contents --}}

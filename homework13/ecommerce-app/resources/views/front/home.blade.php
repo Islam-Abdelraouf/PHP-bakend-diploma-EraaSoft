@@ -1,12 +1,14 @@
+{{-- HOME PAGE --}}
+
 {{-- Main app page inheritance --}}
-@extends('front.app')
+@extends('layouts.master')
 
 {{-- Heading section --}}
 @section('heading')
-    Home Page
+    <x-section-title mainTitle="true">Home Page</x-section-title>
 @endsection
 
 {{-- Page Contents --}}
 @section('content')
-    Home Page Contents
+    @include('layouts.carousel')
 @endsection
