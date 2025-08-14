@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use App\Models\User;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Message>
@@ -16,8 +17,12 @@ class MessageFactory extends Factory
      */
     public function definition(): array
     {
+        $id = User::inRandomOrder()->value('id');
         return [
-            //
+            'user_id' => $id,
+            'email' => User::where('id', $id)->value('email'),
+            'title' => fake()->text(rand(25, 35)),
+            'message' => fake()->text(500)
         ];
     }
 }

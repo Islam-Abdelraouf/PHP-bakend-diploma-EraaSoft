@@ -6,14 +6,20 @@
 
     <img class="w-full rounded-t-lg" style="height: 500px;" src={{ asset($product->image) }} alt="product image" />
     <div class="px-5 pb-5">
+        {{-- title --}}
         <h5 class="text-primary mb-3 mt-3 text-center text-xl font-bold tracking-tight text-gray-900 dark:text-white"
             style="font-size:1.5em;">
             {{ $product->title }}
         </h5>
+        <p class="text-sm font-normal text-gray-500 dark:text-gray-400 mb-6">
+            <span class="text-black">By: </span>{{$product->user->name}}
+        </p>
+
+        {{-- description --}}
         <p class="text-lg font-normal text-gray-500 dark:text-gray-400 mb-6">
             {{ Str::limit($product->description, 50) }}
             <span>
-                <a href="{{ url('product') . '/' . $product->id }}" class="text-blue-600">
+                <a href = " {{ route('product.show', $product->id) }} " class="text-blue-600">
                     Read more
                 </a>
             </span>
@@ -21,6 +27,7 @@
         {{-- product rating --}}
         @include('layouts.card-rating')
         <div class="flex items-center justify-between">
+            {{-- price --}}
             <span class="text-2xl font-bold text-gray-900 dark:text-white">EGP
                 {{ $product->price }}</span>
             <x-card-button>Add to cart</x-card-button>

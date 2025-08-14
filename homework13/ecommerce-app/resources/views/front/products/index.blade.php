@@ -19,6 +19,7 @@
     <div class="relative w-full overflow-x-auto text-left text-sm text-gray-500 rtl:text-right dark:text-gray-400">
         <div class="grid grid-cols-3 gap-4">
             @foreach ($products as $product)
+            {{-- @dd($product) --}}
                 {{-- card contents --}}
                 @include('layouts.card-grid')
             @endforeach

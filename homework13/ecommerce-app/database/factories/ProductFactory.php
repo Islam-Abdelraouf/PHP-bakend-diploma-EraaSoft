@@ -3,7 +3,7 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Illuminate\Support\Str;
+use App\Models\User;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Product>
@@ -22,7 +22,8 @@ class ProductFactory extends Factory
             'price'=> fake()->numberBetween(500,1000),
             'description'=> fake()->text(200),
             'code'=> fake()->unique()->uuid(),
-            'image'=>  url( '/front/images/products/product'. rand(2,12) .'.jpg')
+            'image'=>  url( '/front/images/products/product'. rand(2,12) .'.jpg'),
+            'user_id'=> User::inRandomOrder()->value('id'),
         ];
     }
 }
