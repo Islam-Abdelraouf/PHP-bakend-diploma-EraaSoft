@@ -1,6 +1,7 @@
 <?php
 // Web routing gate
 
+use GuzzleHttp\Middleware;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\HomeController;
@@ -29,32 +30,35 @@ Route::prefix('auth')->controller(AuthController::class)->name('auth.')->group(f
 });
 
 
-Route::prefix('admin')->name('admin.')->group(function () {
-    Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('dashboard');
+Route::middleware(['auth:admin'])
+    ->prefix('admin')
+    ->name('admin.')
+    ->group(function () {
+        Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('dashboard');
 
-    Route::prefix('profile')->name('profile.')->controller(AdminProfileController::class)->group(function () {
-        Route::get('/', 'index')->name('show');
-        Route::get('/edit', 'edit')->name('edit');
-        Route::put('/update', 'update')->name('update');
-    });
+        Route::prefix('profile')->name('profile.')->controller(AdminProfileController::class)->group(function () {
+            Route::get('/', 'index')->name('show');
+            Route::get('/edit', 'edit')->name('edit');
+            Route::put('/update', 'update')->name('update');
+        });
 
-    Route::prefix('doctor')->name('doctor.')->controller(AdminDoctorController::class)->group(function () {
-        Route::get('/', 'index')->name('index');                //GET   /admin/doctor/
-        Route::get('/{doctor}/show', 'show')->name('show');     //GET   /admin/doctor/
-        Route::get('/create', 'create')->name('create');        //GET   /admin/doctor/create
-        Route::post('/', 'store')->name('store');               //POST  /admin/doctor/
-        Route::get('/{doctor}/edit/', 'edit')->name('edit');    //GET   /admin/doctor/{doctor}/edit
-        Route::put('/{doctor}', 'update')->name('update');      //PUT   /admin/doctor/{doctor}
-        Route::delete('/{doctor}', 'destroy')->name('destroy'); //DELETE/admin/doctor/{doctor}
-    });
+        Route::prefix('doctor')->name('doctor.')->controller(AdminDoctorController::class)->group(function () {
+            Route::get('/', 'index')->name('index');                //GET   /admin/doctor/
+            Route::get('/{doctor}/show', 'show')->name('show');     //GET   /admin/doctor/
+            Route::get('/create', 'create')->name('create');        //GET   /admin/doctor/create
+            Route::post('/', 'store')->name('store');               //POST  /admin/doctor/
+            Route::get('/{doctor}/edit/', 'edit')->name('edit');    //GET   /admin/doctor/{doctor}/edit
+            Route::put('/{doctor}', 'update')->name('update');      //PUT   /admin/doctor/{doctor}
+            Route::delete('/{doctor}', 'destroy')->name('destroy'); //DELETE/admin/doctor/{doctor}
+        });
 
-    Route::prefix('major')->name('major.')->controller(AdminMajorController::class)->group(function () {
-        Route::get('/', 'index')->name('index');                  // GET   /admin/major
-        Route::get('/{major}/show', 'show')->name('show');        // GET   /admin/major
-        Route::get('/create', 'create')->name('create');          // GET   /admin/major/create
-        Route::post('/', 'store')->name('store');                 // POST  /admin/major
-        Route::get('/edit/{major}', 'edit')->name('edit');        // GET   /admin/major/{major}/edit
-        Route::put('/{major}', 'update')->name('update');         // PUT   /admin/major/{major}
-        Route::delete('/{major}', 'destroy')->name('destroy');    // DELETE/admin/major/{major}
+        Route::prefix('major')->name('major.')->controller(AdminMajorController::class)->group(function () {
+            Route::get('/', 'index')->name('index');                  // GET   /admin/major
+            Route::get('/{major}/show', 'show')->name('show');        // GET   /admin/major
+            Route::get('/create', 'create')->name('create');          // GET   /admin/major/create
+            Route::post('/', 'store')->name('store');                 // POST  /admin/major
+            Route::get('/edit/{major}', 'edit')->name('edit');        // GET   /admin/major/{major}/edit
+            Route::put('/{major}', 'update')->name('update');         // PUT   /admin/major/{major}
+            Route::delete('/{major}', 'destroy')->name('destroy');    // DELETE/admin/major/{major}
+        });
     });
-});

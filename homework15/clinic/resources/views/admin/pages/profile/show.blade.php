@@ -11,7 +11,7 @@
 @section('content')
 
     @auth
-        @dd(Auth::guard()->user())
+        {{-- @dd(Auth::guard()->user()) --}}
     @endauth
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
