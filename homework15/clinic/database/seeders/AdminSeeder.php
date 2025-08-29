@@ -17,6 +17,7 @@ class AdminSeeder extends Seeder
         Admin::create([
             'name' => config('seeder.admin.name'),
             'email' => config('seeder.admin.email'),
+            'image' => config('seeder.admin.image'),
             'password' => password_hash(config('seeder.admin.password'), PASSWORD_DEFAULT),
         ]);
     }

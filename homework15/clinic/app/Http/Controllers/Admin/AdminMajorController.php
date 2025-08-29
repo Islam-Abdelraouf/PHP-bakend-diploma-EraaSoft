@@ -3,7 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\MajorRequest;
+use App\Http\Requests\CreateMajorRequest;
+use App\Http\Requests\UpdateMajorRequest;
 use App\Models\Major;
 use Illuminate\Auth\Events\Validated;
 use Illuminate\Http\Request;
@@ -35,7 +36,7 @@ class AdminMajorController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(MajorRequest $request)
+    public function store(CreateMajorRequest $request)
     {
         $validatedRequest = $request->validated();
 
@@ -63,17 +64,28 @@ class AdminMajorController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Major $major)
     {
-        //
+        return view('admin.pages.majors.edit', compact('major'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(UpdateMajorRequest $request, Major $major)
     {
-        //
+        $validatedRequest = $request->validated();
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $newImageName = uploadImage($image, 'majors');
+        }
+        $validatedRequest['image'] = $newImageName ?? $major->image;
+
+        if ($major->update($validatedRequest)) {
+            return redirect()->route('admin.major.index')->with('success', 'Major has been updated successfully!');
+        } else {
+            return back()->with('error', 'Error updating major data!');
+        }
     }
 
     /**

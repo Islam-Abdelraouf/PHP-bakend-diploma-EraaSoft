@@ -1,10 +1,10 @@
-{{-- DOCTORS CREATE PAGE --}}
+{{-- DOCTORS EDIT PAGE --}}
 
 
 @extends('admin.layouts.master')
 
 {{-- Title section --}}
-@section('title', 'Create New Doctor')
+@section('title', 'Edit Doctor')
 
 {{-- Contents section --}}
 @section('content')
@@ -32,8 +32,9 @@
             <!-- Default box -->
             <div class="container-fluid">
                 {{-- FORM --}}
-                <form action="{{ route('admin.doctor.store') }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('admin.doctor.update', $doctor->id) }}" method="POST" enctype="multipart/form-data">
                     @csrf
+                    @method('PUT')
                     <x-alert-validation />
                     <div class="card">
                         <div class="card-body">
@@ -43,7 +44,7 @@
                                     <div class="mb-3">
                                         <label for="name">Name</label>
                                         <input type="text" name="name" id="name" class="form-control"
-                                            placeholder="Name">
+                                            placeholder="Name" value="{{ old('name', $doctor->name) ?? '' }}">
                                     </div>
                                     {{-- validation error message --}}
                                     <x-alert key="name" />
@@ -53,7 +54,7 @@
                                     <div class="mb-3">
                                         <label for="email">Email</label>
                                         <input type="text" name="email" id="email" class="form-control"
-                                            placeholder="Email">
+                                            placeholder="Email" value="{{ old('email', $doctor->email) ?? '' }}">
                                     </div>
                                     {{-- validation error message --}}
                                     <x-alert key="email" />
@@ -63,7 +64,7 @@
                                     <div class="mb-3">
                                         <label for="phone">Phone</label>
                                         <input type="text" name="phone" id="phone" class="form-control"
-                                            placeholder="Phone">
+                                            placeholder="Phone" value="{{ old('phone', $doctor->phone) ?? '' }}">
                                     </div>
                                     {{-- validation error message --}}
                                     <x-alert key="phone" />
@@ -71,15 +72,14 @@
                                 {{-- Major Dropdown List --}}
                                 <div class="col-md-12">
                                     <div class="mb-3">
-                                        <label for="phone">Major</label>
+                                        <label for="major_id">Major</label>
                                         <select name="major_id" class="form-control form-select mb-3"
                                             aria-label="Default select example">
-                                            <option value="" @selected(old('major->id'))>--Select Major--</option>
+                                            <option value="">--Select Major--</option>
                                             @foreach ($majors as $major)
-                                                <option
-                                                    value="{{ $major->id }}     {{-- backend value --}}
-                                                    {{-- using the old value in case of validation error took place --}}
-                                                    {{ old('major_id') == $major->id ? old('major_id') : '' }}">
+                                                <option value="{{ $major->id }}" {{-- backend value --}}
+                                                    {{-- reselect the old value in case of validation error took place --}}
+                                                    {{ old('major_id', $doctor->major_id) == $major->id ? 'selected' : '' }}>
                                                     {{ $major->name }}
                                                 </option>
                                             @endforeach
@@ -90,7 +90,7 @@
                                 <div class="col-md-12">
                                     <div class="mb-3">
                                         <label for="phone">Address</label>
-                                        <textarea name="address" id="address" class="form-control" cols="30" rows="5"></textarea>
+                                        <textarea name="address" id="address" class="form-control" cols="30" rows="5"> {{ old('address', $doctor->address) ?? '' }}</textarea>
                                     </div>
                                     {{-- validation error message --}}
                                     <x-alert key="address" />
@@ -102,6 +102,9 @@
                                         <input type="file" name="image" id="image"
                                             class="form-control py-1"></input>
                                     </div>
+                                    <div>
+                                        <img src=" {{ $doctor->getImageUrl() }} " alt="{{ $doctor->name }}">
+                                    </div>
                                     {{-- validation error message --}}
                                     <x-alert key="image" />
                                 </div>
@@ -110,7 +113,7 @@
                     </div>
                     {{-- Submit button --}}
                     <div class="pb-5 pt-3">
-                        <button type="submit" value="create" class="btn btn-primary">Create</button>
+                        <button type="submit" value="update" class="btn btn-primary">Update</button>
                         <a href="{{ route('admin.doctor.index') }}" class="btn btn-outline-dark ml-3">Cancel</a>
                     </div>
                 </form>

@@ -20,7 +20,17 @@ class Doctor extends Model
         'major_id',
     ];
 
-    public function major(){
+    public function major()
+    {
         return $this->belongsTo(Major::class);
+    }
+
+    public function getImageUrl()
+    {
+        $image = $this->image;
+        if ($image) {
+            return asset('front/images/doctors/' . $image);
+        }
+
     }
 }

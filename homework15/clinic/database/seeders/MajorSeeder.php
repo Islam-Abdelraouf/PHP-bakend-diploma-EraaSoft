@@ -16,21 +16,21 @@ class MajorSeeder extends Seeder
     public function run(): void
     {
         $majors = [
-            ['name' => 'General Medicine', 'slug' => 'General Medicine', 'image' => 'general_medicine.jpg'],
-            ['name' => 'Dentistry', 'slug' => 'Dentistry', 'image' => 'dentistry.jpg'],
-            ['name' => 'Pharmacy', 'slug' => 'Pharmacy', 'image' => 'pharmacy.jpg'],
-            ['name' => 'Nursing', 'slug' => 'Nursing', 'image' => 'nursing.jpg'],
-            ['name' => 'Physiotherapy', 'slug' => 'Physiotherapy', 'image' => 'physiotherapy.jpg'],
-            ['name' => 'Medical Laboratory Science', 'slug' => 'Medical Laboratory Science', 'image' => 'lab_science.jpg'],
-            ['name' => 'Radiology', 'slug' => 'Radiology', 'image' => 'radiology.jpg'],
-            ['name' => 'Anesthesiology', 'slug' => 'Anesthesiology', 'image' => 'anesthesiology.jpg'],
-            ['name' => 'Surgery', 'slug' => 'Surgery', 'image' => 'surgery.jpg'],
-            ['name' => 'Pediatrics', 'slug' => 'Pediatrics', 'image' => 'pediatrics.jpg'],
-            ['name' => 'Obstetrics & Gynecology', 'slug' => 'Obstetrics & Gynecology', 'image' => 'obgyn.jpg'],
-            ['name' => 'Psychiatry', 'slug' => 'Psychiatry', 'image' => 'psychiatry.jpg'],
-            ['name' => 'Dermatology', 'slug' => 'Dermatology', 'image' => 'dermatology.jpg'],
-            ['name' => 'Cardiology', 'slug' => 'Cardiology', 'image' => 'cardiology.jpg'],
-            ['name' => 'Orthopedics', 'slug' => 'Orthopedics', 'image' => 'orthopedics.jpg'],
+            ['name' => 'General Medicine', 'slug' => 'General Medicine', 'image' => 'default-150x150.png'],
+            ['name' => 'Dentistry', 'slug' => 'Dentistry', 'image' => 'default-150x150.png'],
+            ['name' => 'Pharmacy', 'slug' => 'Pharmacy', 'image' => 'default-150x150.png'],
+            ['name' => 'Nursing', 'slug' => 'Nursing', 'image' => 'default-150x150.png'],
+            ['name' => 'Physiotherapy', 'slug' => 'Physiotherapy', 'image' => 'default-150x150.png'],
+            ['name' => 'Medical Laboratory Science', 'slug' => 'Medical Laboratory Science', 'image' => 'default-150x150.png'],
+            ['name' => 'Radiology', 'slug' => 'Radiology', 'image' => 'default-150x150.png'],
+            ['name' => 'Anesthesiology', 'slug' => 'Anesthesiology', 'image' => 'default-150x150.png'],
+            ['name' => 'Surgery', 'slug' => 'Surgery', 'image' => 'default-150x150.png'],
+            ['name' => 'Pediatrics', 'slug' => 'Pediatrics', 'image' => 'default-150x150.png'],
+            ['name' => 'Obstetrics & Gynecology', 'slug' => 'Obstetrics & Gynecology', 'image' => 'default-150x150.png'],
+            ['name' => 'Psychiatry', 'slug' => 'Psychiatry', 'image' => 'default-150x150.png'],
+            ['name' => 'Dermatology', 'slug' => 'Dermatology', 'image' => 'default-150x150.png'],
+            ['name' => 'Cardiology', 'slug' => 'Cardiology', 'image' => 'default-150x150.png'],
+            ['name' => 'Orthopedics', 'slug' => 'Orthopedics', 'image' => 'default-150x150.png'],
         ];
 
         foreach ($majors as $major) {

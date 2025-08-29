@@ -26,4 +26,8 @@ class Major extends Model
     public function doctor(){
         return $this->hasMany(Doctor::class);
     }
+
+    public function getImageUrl(){
+        return asset('front/images/majors/'. $this->image);
+    }
 }

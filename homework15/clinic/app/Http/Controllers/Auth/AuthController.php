@@ -47,28 +47,24 @@ class AuthController extends Controller
     public function register(RegisterRequest $request)
     {
         // dd(public_path());
-        $data = $request->validated();
+        $validatedData = $request->validated();
 
         // 'name'
         // 'email'
         // 'phone'
         // 'password'
         // 'image'
-        if (isset($data['image'])) {
-            $image = $data['image'];
-            if (($image->getSize() < 2 * 1024 * 1024)) {
-                $extension = $image->getClientOriginalExtension();
-                $newImageName = time() . '-user.' . $extension;
-                $image->move(public_path('front/images/users'), $newImageName);
-            }
-            $data['image'] = $newImageName ?? 'default.jpg';
+        if ($request->hasFile('image')) {
+            $image = $validatedData['image'];
+            $imageName = uploadImage($image, 'users');
         }
 
-        $instance = User::create($data);
+        $validatedData['image'] = $imageName ?? 'default-user.png';
+
+        $instance = User::create($validatedData);
         if ($instance) {
             return redirect(route('auth.login'))->with('success', 'User registered successfully!');
         }
-
-        return back()->with('error', 'Failed to create account!');
+        return back()->with('error', 'Failed to create user account!');
     }
 }

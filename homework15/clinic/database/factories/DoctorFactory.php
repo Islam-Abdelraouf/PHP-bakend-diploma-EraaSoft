@@ -22,7 +22,7 @@ class DoctorFactory extends Factory
             'email' => fake()->unique()->safeEmail,
             'phone' => fake()->unique()->phoneNumber(),
             'address' => fake()->address,
-            'image' => fake()->imageUrl(640, 480, 'people', true, 'doctor'),
+            'image' => 'default-150x150.png',
             'major_id' => Major::query()->inRandomOrder()->first()->id,
         ];
     }

@@ -74,22 +74,27 @@
                             <tbody>
                                 @foreach ($doctors as $doctor)
                                     <tr>
-                                        <td> {{ $loop->iteration }} </td>
-                                        <td><img src="{{ $doctor->image }}" alt="{{ $doctor->name }}"></td>
-                                        <td> {{ $doctor->name }} </td>
-                                        <th>{{ $doctor->major->major }}</th>
-                                        <td> {{ $doctor->phone }} </td>
+                                        <td class="align-middle"> {{ $loop->iteration }} </td>
+                                        <td class="align-middle"><img src="{{ $doctor->getImageUrl() }}" alt="{{ $doctor->name }}"
+                                                class="rounded" style="width: 100px;"></td>
+                                        <td class="align-middle"> {{ $doctor->name }} </td>
+                                        <td class="align-middle">{{ $doctor->major->name }}</td>
+                                        <td class="align-middle"> {{ $doctor->phone }} </td>
                                         {{-- <td> {{ $doctor->email }} </td> --}}
                                         {{-- <td> {{ Str::limit($doctor->address,12) }} </td> --}}
-                                        <td class="px-1 text-center">
-                                            <div class="flex flex-row justify-content-center">
-                                                <a href="#" class="d-inline flex">
+                                        <td class="px-1 align-middle text-center">
+                                            <div class="justify-content-center flex flex-row">
+                                                {{-- Show button --}}
+                                                <a href="{{ route('admin.doctor.show',$doctor->id) }}" class="d-inline flex">
                                                     <i class="fa-solid fa-eye" style="color: #002aff;"></i>
                                                 </a>
-                                                <a href="#" class="d-inline flex">
+                                                {{-- Edit button --}}
+                                                <a href="{{ route('admin.doctor.edit', $doctor) }}" class="d-inline flex">
                                                     <i class="fa-solid fa-pen-to-square" style="color: #05a33a;"></i>
                                                 </a>
-                                                <form action="{{ route('admin.doctor.destroy', $doctor) }}" method="POST" class="d-inline border-0 bg-transparent">
+                                                {{-- Delete button --}}
+                                                <form action="{{ route('admin.doctor.destroy', $doctor) }}" method="POST"
+                                                    class="d-inline border-0 bg-transparent">
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="border-0 bg-transparent"

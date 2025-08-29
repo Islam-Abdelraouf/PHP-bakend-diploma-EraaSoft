@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
-use App\Http\Requests\DoctorRequest;
-use App\Models\Doctor;
 use App\Models\Major;
+use App\Models\Doctor;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Http\Requests\CreateDoctorRequest;
+use App\Http\Requests\UpdateDoctorRequest;
 
 class AdminDoctorController extends Controller
 {
@@ -18,8 +19,8 @@ class AdminDoctorController extends Controller
         $doctors = Doctor::query();
 
         $doctors = request()->has('search')
-            ? Doctor::where('name', 'LIKE', '%' . request()->search . '%')->paginate(10)
-            : Doctor::paginate(10);
+            ? Doctor::where('name', 'LIKE', '%' . request()->search . '%')->with('major')->paginate(10)
+            : Doctor::with('major')->paginate(10);
         return view("admin.pages.doctors.index", compact('doctors'));
     }
 
@@ -35,9 +36,9 @@ class AdminDoctorController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(DoctorRequest $request)
+    public function store(CreateDoctorRequest $request)
     {
-        
+
         $validatedRequest = $request->validated();
 
         if (isset($validatedRequest['image'])) {
@@ -56,25 +57,39 @@ class AdminDoctorController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Doctor $doctor)
     {
-        //
+        return view('admin.pages.doctors.show', compact('doctor'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Doctor $doctor)
     {
-        //
+        $majors = Major::all();
+        return view('admin.pages.doctors.edit', compact('majors', 'doctor'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(UpdateDoctorRequest $request, Doctor $doctor)
     {
-        //
+        $validatedRequest = $request->validated();
+
+        if ($request->hasFile('image')) {
+            // dd('has image');
+            $image = $validatedRequest['image'];
+            $imageName = uploadImage($image, 'doctors');
+        }
+        $validatedRequest['image'] = $imageName ?? $doctor->image;
+
+        if ($doctor->update($validatedRequest)) {
+            return redirect()->route('admin.doctor.index')->with('success', 'Doctor has been updated successfully!');
+        } else {
+            return back()->with('error', 'Error updating the doctor, please try again later!');
+        }
     }
 
     /**

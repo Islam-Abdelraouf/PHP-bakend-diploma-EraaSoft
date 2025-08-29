@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class MajorRequest extends FormRequest
+class UpdateMajorRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,9 +24,7 @@ class MajorRequest extends FormRequest
         return [
             'name' => ['required', 'string', 'min:5'],
             'slug' => ['required', 'string', 'min:5'],
-            'image' => ['image', 'mimes:jpg,jpeg,png,gif.webb', 'max:2048'],
+            'image' => ['nullable', 'image', 'max:2048'],
         ];
-
-        
     }
 }

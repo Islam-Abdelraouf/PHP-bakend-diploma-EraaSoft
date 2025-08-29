@@ -10,6 +10,7 @@ use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Admin\AdminMajorController;
 use App\Http\Controllers\Admin\AdminDoctorController;
 use App\Http\Controllers\Admin\AdminDashboardController;
+use App\Http\Controllers\Admin\AdminProfileController;
 
 
 Route::get('/', [HomeController::class, 'home'])->name('home');     //GET   /
@@ -31,8 +32,15 @@ Route::prefix('auth')->controller(AuthController::class)->name('auth.')->group(f
 Route::prefix('admin')->name('admin.')->group(function () {
     Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('dashboard');
 
+    Route::prefix('profile')->name('profile.')->controller(AdminProfileController::class)->group(function () {
+        Route::get('/', 'index')->name('show');
+        Route::get('/edit', 'edit')->name('edit');
+        Route::put('/update', 'update')->name('update');
+    });
+
     Route::prefix('doctor')->name('doctor.')->controller(AdminDoctorController::class)->group(function () {
         Route::get('/', 'index')->name('index');                //GET   /admin/doctor/
+        Route::get('/{doctor}/show', 'show')->name('show');     //GET   /admin/doctor/
         Route::get('/create', 'create')->name('create');        //GET   /admin/doctor/create
         Route::post('/', 'store')->name('store');               //POST  /admin/doctor/
         Route::get('/{doctor}/edit/', 'edit')->name('edit');    //GET   /admin/doctor/{doctor}/edit
@@ -42,6 +50,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
 
     Route::prefix('major')->name('major.')->controller(AdminMajorController::class)->group(function () {
         Route::get('/', 'index')->name('index');                  // GET   /admin/major
+        Route::get('/{major}/show', 'show')->name('show');        // GET   /admin/major
         Route::get('/create', 'create')->name('create');          // GET   /admin/major/create
         Route::post('/', 'store')->name('store');                 // POST  /admin/major
         Route::get('/edit/{major}', 'edit')->name('edit');        // GET   /admin/major/{major}/edit

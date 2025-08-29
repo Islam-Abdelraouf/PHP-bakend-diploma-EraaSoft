@@ -4,7 +4,7 @@
 
 @extends('admin.layouts.master')
 
-@section('title', 'Majors Listing') 
+@section('title', 'Majors Listing')
 
 {{-- Contents section --}}
 @section('content')
@@ -32,7 +32,7 @@
 
                 {{-- Success Message --}}
                 <x-success />
-                
+
                 <div class="card">
                     {{-- Card Header --}}
                     <div class="card-header">
@@ -64,6 +64,7 @@
                                     <th width="60">ID</th>
                                     <th>Major</th>
                                     <th>Slug</th>
+                                    <th>Image</th>
                                     {{-- <th>Email</th> --}}
                                     {{-- <th>Address</th> --}}
                                     <th width="100">Actions</th>
@@ -75,17 +76,20 @@
                                         <td> {{ $loop->iteration }} </td>
                                         <td> {{ $major->name }} </td>
                                         <td> {{ $major->slug }} </td>
-                                        {{-- <td> {{ $major->email }} </td> --}}
-                                        {{-- <td> {{ Str::limit($major->address,12) }} </td> --}}
+                                        <td> <img src="{{ $major->getImageUrl() }}" alt="{{ $major->name }}" style="width: 100px;"> </td>
                                         <td class="px-1 text-center">
-                                            <div class="flex flex-row justify-content-center">
-                                                <a href="#" class="d-inline flex">
+                                            <div class="justify-content-center flex flex-row">
+                                                {{-- Show button --}}
+                                                <a href="{{ route('admin.major.show', $major) }}" class="d-inline flex">
                                                     <i class="fa-solid fa-eye" style="color: #002aff;"></i>
                                                 </a>
-                                                <a href="#" class="d-inline flex">
+                                                {{-- Edit button --}}
+                                                <a href="{{ route('admin.major.edit', $major) }}" class="d-inline flex">
                                                     <i class="fa-solid fa-pen-to-square" style="color: #05a33a;"></i>
                                                 </a>
-                                                <form action="{{ route('admin.major.destroy', $major) }}" method="POST" class="d-inline border-0 bg-transparent">
+                                                {{-- Delete button --}}
+                                                <form action="{{ route('admin.major.destroy', $major) }}" method="POST"
+                                                    class="d-inline border-0 bg-transparent">
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="border-0 bg-transparent"

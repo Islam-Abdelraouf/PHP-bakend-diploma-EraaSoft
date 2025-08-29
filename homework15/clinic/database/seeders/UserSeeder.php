@@ -16,6 +16,7 @@ class UserSeeder extends Seeder
         User::create([
             'name' => config('seeder.user.name'),
             'email' => config('seeder.user.email'),
+            'image' => config('seeder.user.image'),
             'password' => password_hash(config('seeder.user.password'), PASSWORD_DEFAULT),
         ]);
     }

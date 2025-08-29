@@ -22,6 +22,7 @@ class AdminFactory extends Factory
         return [
             'name' => fake()->name(),
             'email' => fake()->unique()->safeEmail(),
+            'image' => 'default-user.png',
             'password' => hash::make('password'),
         ];
     }

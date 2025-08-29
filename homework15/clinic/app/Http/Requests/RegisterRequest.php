@@ -27,7 +27,7 @@ class RegisterRequest extends FormRequest
             'name' => ['required', 'string', 'min:4', 'max:20'],
             'email' => ['required', Email::defaults(), 'email', 'unique:users,email'],
             'phone' => ['required', 'string', 'min:10', 'max:15'],
-            'image' => ['image', 'mimes:jpg,jpeg,png,gif.webb', 'max:2048'],
+            'image' => ['image', 'max:2048'],
             'password' => ['required', 'string', Password::defaults(), 'confirmed'],
         ];
         return $arr;
