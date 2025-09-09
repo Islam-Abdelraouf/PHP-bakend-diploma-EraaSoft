@@ -229,12 +229,12 @@
 							"formdata": [
 								{
 									"key": "name",
-									"value": "islam",
+									"value": "ghadeer",
 									"type": "text"
 								},
 								{
 									"key": "email",
-									"value": "islam@gmail.com",
+									"value": "ghadeer@gmail.com",
 									"type": "text"
 								},
 								{
@@ -270,7 +270,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "2|7xZOSEdQcU677wzeHowGs1CucUnaeoLocRW15Ysgda0f65e2",
+									"value": "12|hh3cAzF4TTprDGBiodCrSpeUIubtYlrDgTdomgf8d5800604",
 									"type": "string"
 								}
 							]
@@ -317,7 +317,6 @@
 							"connection": true,
 							"accept-encoding": true,
 							"accept": true,
-							"user-agent": true,
 							"host": true
 						}
 					},
@@ -327,7 +326,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "2|6R07EKNP92EAxUvPm126YVQWTNpcGh0XORGhpGwW37528272",
+									"value": "13|mjsguJTbwYp8lR1y1o4rs27kIP4b2KNCQZkyJOal126b562d",
 									"type": "string"
 								}
 							]
@@ -399,8 +398,33 @@
 				{
 					"name": "Logout",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "13|mjsguJTbwYp8lR1y1o4rs27kIP4b2KNCQZkyJOal126b562d",
+									"type": "string"
+								}
+							]
+						},
 						"method": "POST",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/logout",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"logout"
+							]
+						}
 					},
 					"response": []
 				}
@@ -417,7 +441,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "2|7xZOSEdQcU677wzeHowGs1CucUnaeoLocRW15Ysgda0f65e2",
+									"value": "14|Br9p4aNIzGAewqykxMVRlOGmzioe7vbsvyZWMIOE3a354e46",
 									"type": "string"
 								}
 							]
@@ -450,7 +474,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "2|7xZOSEdQcU677wzeHowGs1CucUnaeoLocRW15Ysgda0f65e2",
+									"value": "13|mjsguJTbwYp8lR1y1o4rs27kIP4b2KNCQZkyJOal126b562d",
 									"type": "string"
 								}
 							]
@@ -469,12 +493,12 @@
 							"formdata": [
 								{
 									"key": "productId",
-									"value": "3",
+									"value": "6",
 									"type": "text"
 								},
 								{
 									"key": "quantity",
-									"value": "2",
+									"value": "1",
 									"type": "text"
 								},
 								{
@@ -511,7 +535,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "3|ix9OA7g3j5dnaxQ4Re4ztUuSI4IjOMfbJ7EUx0hqf4c44f5c",
+									"value": "5|pz1CHwkR34jfVeqmUag0qGa8fOwBxGpDol3JAcDF37b3fd7f",
 									"type": "string"
 								}
 							]
@@ -523,7 +547,7 @@
 							"formdata": [
 								{
 									"key": "quantity",
-									"value": "12",
+									"value": "2",
 									"type": "text"
 								},
 								{
@@ -534,7 +558,7 @@
 							]
 						},
 						"url": {
-							"raw": "http://127.0.0.1:8000/api/cart/id/8b123cebb80368b0bce96fde4331b944",
+							"raw": "http://127.0.0.1:8000/api/cart/id/8814afcde20a77585791eb70a1a79f1e",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -547,7 +571,7 @@
 								"api",
 								"cart",
 								"id",
-								"8b123cebb80368b0bce96fde4331b944"
+								"8814afcde20a77585791eb70a1a79f1e"
 							]
 						}
 					},
@@ -824,7 +848,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "2|7xZOSEdQcU677wzeHowGs1CucUnaeoLocRW15Ysgda0f65e2",
+									"value": "13|mjsguJTbwYp8lR1y1o4rs27kIP4b2KNCQZkyJOal126b562d",
 									"type": "string"
 								}
 							]
@@ -879,7 +903,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "2|7xZOSEdQcU677wzeHowGs1CucUnaeoLocRW15Ysgda0f65e2",
+									"value": "13|mjsguJTbwYp8lR1y1o4rs27kIP4b2KNCQZkyJOal126b562d",
 									"type": "string"
 								}
 							]
@@ -914,7 +938,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "2|7xZOSEdQcU677wzeHowGs1CucUnaeoLocRW15Ysgda0f65e2",
+									"value": "13|mjsguJTbwYp8lR1y1o4rs27kIP4b2KNCQZkyJOal126b562d",
 									"type": "string"
 								}
 							]
@@ -949,7 +973,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "2|7xZOSEdQcU677wzeHowGs1CucUnaeoLocRW15Ysgda0f65e2",
+									"value": "13|mjsguJTbwYp8lR1y1o4rs27kIP4b2KNCQZkyJOal126b562d",
 									"type": "string"
 								}
 							]
@@ -961,12 +985,12 @@
 							"formdata": [
 								{
 									"key": "status",
-									"value": "preparing",
+									"value": "delivered",
 									"type": "text"
 								},
 								{
 									"key": "message",
-									"value": "Your order is being processed",
+									"value": "We’ve completed delivery of your order. We hope everything’s perfect",
 									"type": "text"
 								}
 							]
