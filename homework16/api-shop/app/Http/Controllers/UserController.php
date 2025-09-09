@@ -2,25 +2,28 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\UserResource;
+use App\Models\phone;
 use Illuminate\Http\Request;
-use App\Models\Product;
+use App\Models\User;
 
 class UserController extends Controller
 {
     protected $status;
     protected $error;
     protected $data;
-
+    //  Listing of all users
     public function index()
     {
-        $products = Product::all();
+        //  loading all users with eager loading
+        $users = User::with('phones')->get();
 
-        if (!$products) {
+        if (!$users) {
             $this->data = null;
             $this->status = 500;
             $this->error = 'Error collecting';
         } else {
-            $this->data = $products;
+            $this->data = UserResource::collection($users);
             $this->status = 200;
             $this->error = null;
         }
@@ -31,37 +34,11 @@ class UserController extends Controller
             'data' => $this->data,
         ]);
     }
-
-
-    public function show($id, $token)
+    //  Show details of the logged in  user
+    public function user(Request $request)
     {
-        if ($token == 'koRrtP61234GHkdjhs6543') {
-            $product = Product::find($id);
-        } else {
-            $this->data = null;
-            $this->status = 403;
-            $this->error = 'This access is un-authorized, please check your subscription!';
-
-            return response()->json([
-                'status' => $this->status,
-                'error' => $this->error,
-                'data' => $this->data,
-            ]);
-        }
-
-        if (!$product) {
-            $this->data = null;
-            $this->status = 500;
-            $this->error = 'Cannot find requested product, please make sure the ID is correct!';
-        } else {
-            $this->data = $product;
-            $this->status = 200;
-            $this->error = null;
-        }
-        return response()->json([
-            'status' => $this->status,
-            'error' => $this->error,
-            'data' => $this->data,
-        ]);
+        $user = $request->user()->load('phones');
+        return new UserResource($user);
     }
+
 }

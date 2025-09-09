@@ -2,24 +2,22 @@
 
 namespace Database\Factories;
 
-use App\Models\Product;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Product>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\phone>
  */
-class ProductFactory extends Factory
+class PhoneFactory extends Factory
 {
     /**
      * Define the model's default state.
      *
      * @return array<string, mixed>
      */
-    public function definition()
+    public function definition(): array
     {
         return [
-            //
+            'number' => fake()->phoneNumber(),
         ];
     }
 }

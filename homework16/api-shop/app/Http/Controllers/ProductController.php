@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\ProductResource;
 use App\Models\Product;
-use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Validator;
-
+use Illuminate\Http\JsonResponse;
 
 class ProductController extends Controller
 {
@@ -27,11 +26,12 @@ class ProductController extends Controller
             $this->status = 404;
             $this->error = 'No product to do operation!';
         } else {
-            $this->data = $products;
+            $this->data = ProductResource::collection($products);
             $this->message = null;
             $this->status = 200;
             $this->error = null;
         }
+
 
         //  returns JSON response
         return response()->json([
@@ -53,7 +53,7 @@ class ProductController extends Controller
             $this->status = 404;
             $this->error = 'No product to do operation!';
         } else {
-            $this->data = $product;
+            $this->data = new ProductResource($product);
             $this->message = null;
             $this->status = 200;
             $this->error = null;
